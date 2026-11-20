@@ -22,7 +22,6 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Typing :: Typed",
 ]
-# `cleanedweb` is not on PyPI yet: install it from ../cleanedweb-python (see README) until it is.
 dependencies = ["llama-index-core>=0.13.0,<0.15", "cleanedweb>=0.1.0,<1"]
 
 [project.urls]

@@ -15,9 +15,7 @@ Runs are charged per record delivered.
 pip install llama-index-tools-cleanedweb
 ```
 
-> Not on PyPI yet. Until it is, install from GitHub:
-> `pip install git+https://github.com/cleanedweb/cleanedweb-python git+https://github.com/cleanedweb/llama-index-tools-cleanedweb`.
-> `llama-index-tools-cleanedweb` depends on [`cleanedweb`](https://github.com/cleanedweb/cleanedweb-python).
+`llama-index-tools-cleanedweb` depends on [`cleanedweb`](https://github.com/cleanedweb/cleanedweb-python).
 
 Create an API key with the `run` scope in the [console](https://app.cleanedweb.com/) and export it as
 `CLEANEDWEB_API_KEY`. Finding and reading APIs needs no key.
