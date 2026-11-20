@@ -55,7 +55,7 @@ class CleanedWebToolSpec(BaseToolSpec):
 
     Args:
         api_key: CleanedWeb API key. Defaults to the ``CLEANEDWEB_API_KEY`` env var.
-        base_url: Run origin override (default ``https://broker.cleanedweb.com``).
+        base_url: Run origin override (default ``https://api.cleanedweb.com``).
         default_max_items: ``max_items`` used when the model gives none (default 5).
         max_items_limit: Upper bound on ``max_items``, to protect the user's credit (default 100).
         wait_seconds: How long one ``run_api`` call waits for the run to end (default 60).

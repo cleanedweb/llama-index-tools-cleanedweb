@@ -4,12 +4,12 @@ from typing import Any, Dict, List
 
 import pytest
 
-BROKER = "https://broker.cleanedweb.com"
+API_ORIGIN = "https://api.cleanedweb.com"
 APP = "https://app.cleanedweb.com"
 SITE = "https://cleanedweb.com"
 API_ID = "generated_aaaaaaaaaaaaaaaaaaaaaaaa"
 ENDPOINT_ID = f"{API_ID}_search"
-RUN_BASE = f"{BROKER}/v1/catalog/public/apis/{API_ID}/endpoints/{ENDPOINT_ID}"
+RUN_BASE = f"{API_ORIGIN}/v1/catalog/public/apis/{API_ID}/endpoints/{ENDPOINT_ID}"
 RUN_ID = "0123456789abcdef0123456789abcdef"
 
 LIVE_ITEMS = [
