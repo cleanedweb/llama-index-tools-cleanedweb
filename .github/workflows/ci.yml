@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      # TEMPORARY: `cleanedweb` is not on PyPI and its repository is private. Check it out with a
+      # read-only token (repo secret CLEANEDWEB_PYTHON_TOKEN) and install it from source. Delete this
+      # step once `cleanedweb` is published.
+      - uses: actions/checkout@v4
+        with:
+          repository: cleanedweb/cleanedweb-python
+          path: _cleanedweb-python
+          token: ${{ secrets.CLEANEDWEB_PYTHON_TOKEN }}
+      - name: Install
+        run: python -m pip install ./_cleanedweb-python -e ".[dev]"
+      - name: Lint
+        run: |
+          ruff check .
+          ruff format --check .
+      - name: Type check
+        run: mypy
+      - name: Test
+        run: pytest -q

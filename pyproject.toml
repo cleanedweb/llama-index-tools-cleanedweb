@@ -1,0 +1,60 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "llama-index-tools-cleanedweb"
+version = "0.1.0"
+description = "LlamaIndex tool spec for CleanedWeb: find, read and run maintained REST APIs that return structured records from public websites."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11,<4.0"
+authors = [{ name = "CleanedWeb" }]
+maintainers = [{ name = "CleanedWeb" }]
+keywords = ["llama-index", "cleanedweb", "tools", "agents", "web data", "scraping"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+# `cleanedweb` is not on PyPI yet: install it from ../cleanedweb-python (see README) until it is.
+dependencies = ["llama-index-core>=0.13.0,<0.15", "cleanedweb>=0.1.0,<1"]
+
+[project.urls]
+Homepage = "https://cleanedweb.com/?utm_source=github&utm_medium=llama-index-tools-cleanedweb"
+Documentation = "https://cleanedweb.com/docs/python/?utm_source=github&utm_medium=llama-index-tools-cleanedweb"
+Repository = "https://github.com/cleanedweb/llama-index-tools-cleanedweb"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "respx>=0.21", "ruff>=0.5", "mypy>=1.10"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["llama_index"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W"]
+ignore = ["UP006", "UP007", "UP035", "UP045", "B904"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["llama_index"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["llama_index"]
+namespace_packages = true
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
