@@ -1,4 +1,8 @@
+<p align="center"><img src="https://cleanedweb.com/assets/logo.png" width="72" alt="CleanedWeb"></p>
+
 # LlamaIndex Tool Spec: CleanedWeb
+
+[![PyPI](https://img.shields.io/pypi/v/llama-index-tools-cleanedweb)](https://pypi.org/project/llama-index-tools-cleanedweb/) [![CI](https://github.com/cleanedweb/llama-index-tools-cleanedweb/actions/workflows/ci.yml/badge.svg)](https://github.com/cleanedweb/llama-index-tools-cleanedweb/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/cleanedweb/llama-index-tools-cleanedweb/blob/main/LICENSE)
 
 [CleanedWeb](https://cleanedweb.com/?utm_source=github&utm_medium=llama-index-tools-cleanedweb) turns
 public website collections (listings, products, jobs, articles, profiles) into maintained REST APIs that
