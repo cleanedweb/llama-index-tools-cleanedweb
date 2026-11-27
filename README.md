@@ -4,10 +4,19 @@
 
 [![PyPI](https://img.shields.io/pypi/v/llama-index-tools-cleanedweb)](https://pypi.org/project/llama-index-tools-cleanedweb/) [![CI](https://github.com/cleanedweb/llama-index-tools-cleanedweb/actions/workflows/ci.yml/badge.svg)](https://github.com/cleanedweb/llama-index-tools-cleanedweb/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](https://github.com/cleanedweb/llama-index-tools-cleanedweb/blob/main/LICENSE)
 
-[CleanedWeb](https://cleanedweb.com/?utm_source=github&utm_medium=llama-index-tools-cleanedweb) turns
-public website collections (listings, products, jobs, articles, profiles) into maintained REST APIs that
-return structured records. `CleanedWebToolSpec` gives a LlamaIndex agent three tools: `find_api`,
-`get_api` and `run_api`.
+<p align="center"><img src="https://raw.githubusercontent.com/cleanedweb/llama-index-tools-cleanedweb/main/docs/demo.gif" width="760" alt="Terminal: the LlamaIndex tool spec finds the Steam Most Played Games API and prints five live records"></p>
+<p align="center"><sub>A live run: the five most played Steam games right now, as five records.</sub></p>
+
+**Scrapers break whenever a site changes its pages.** CleanedWeb is a catalog of maintained REST APIs
+for public websites (listings, products, jobs, articles, profiles): you call an API and get structured
+records with known fields. When a site changes, CleanedWeb rebuilds its API.
+This is the LlamaIndex tool spec for [CleanedWeb](https://cleanedweb.com/?utm_source=github&utm_medium=llama-index-tools-cleanedweb).
+
+- `CleanedWebToolSpec` gives a LlamaIndex agent three tools: `find_api`, `get_api` and `run_api`.
+- Finding and reading are free and need no key; only running is charged, per record.
+- Guard rails for agents: small `max_items` by default, a hard cap, and records marked as data, never instructions.
+- A slow run returns its idempotency key, so a retry reads the same run and is never charged twice.
+- Every tool has an async twin that agents use automatically.
 
 **Pricing:** 5,000 records free once, then prepaid credit from $1 per 1,000 records, no subscription.
 Runs are charged per record delivered.
